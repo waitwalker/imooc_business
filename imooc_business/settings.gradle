@@ -1,2 +1,5 @@
+include ':imooc_voice'
+include ':lib_video'
+include ':lib_audio'
 include ':app'
 rootProject.name = "imooc_business"

@@ -13,6 +13,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/imooc_voice" />
+            <option value="$PROJECT_DIR$/lib_audio" />
+            <option value="$PROJECT_DIR$/lib_video" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
