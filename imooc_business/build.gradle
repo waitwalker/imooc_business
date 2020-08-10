@@ -3,6 +3,22 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven{
+            url 'http://localhost:8081/repository/imooc_release/'
+            credentials{
+                username 'admin'
+                password 'etiantian'
+            }
+        }
+
+        maven{
+            url 'http://localhost:8081/repository/imooc_release/'
+            credentials{
+                username 'admin'
+                password 'etiantian'
+            }
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.1"
@@ -16,6 +32,22 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven{
+            url 'http://localhost:8081/repository/imooc_release/'
+            credentials{
+                username 'admin'
+                password 'etiantian'
+            }
+        }
+
+        maven{
+            url 'http://localhost:8081/repository/imooc_release/'
+            credentials{
+                username 'admin'
+                password 'etiantian'
+            }
+        }
     }
 }
 
