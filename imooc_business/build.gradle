@@ -4,6 +4,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        // 私有仓库地址
         maven{
             url 'http://localhost:8081/repository/imooc_release/'
             credentials{
@@ -33,6 +34,7 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        // 私有仓库地址
         maven{
             url 'http://localhost:8081/repository/imooc_release/'
             credentials{
