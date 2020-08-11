@@ -26,8 +26,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation this.rootProject.depsLibs.appcompat
-    implementation this.rootProject.depsLibs.junit
-    implementation this.rootProject.depsLibs.extJunit
+    testImplementation this.rootProject.depsLibs.junit
+    androidTestImplementation this.rootProject.depsLibs.extJunit
     androidTestImplementation this.rootProject.depsLibs.espressoCore
 
 }
