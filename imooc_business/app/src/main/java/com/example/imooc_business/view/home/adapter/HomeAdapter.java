@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.imooc_business.model.CHANNEL;
 
+// 首页ViewPager adapter
 public class HomeAdapter extends FragmentPagerAdapter {
 
     private CHANNEL[] mList;
@@ -16,6 +17,7 @@ public class HomeAdapter extends FragmentPagerAdapter {
         mList = datas;
     }
 
+    // 初始化对应的Fragment  这种方法,滑动到哪页会创建哪个,优化内存
     @NonNull
     @Override
     public Fragment getItem(int position) {

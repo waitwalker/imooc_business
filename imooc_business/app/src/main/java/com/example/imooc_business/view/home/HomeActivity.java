@@ -15,6 +15,7 @@ import android.view.View;
 import com.example.imooc_business.R;
 import com.example.imooc_business.model.CHANNEL;
 import com.example.imooc_business.view.home.adapter.HomeAdapter;
+import com.example.lib_common_ui.base.BaseActivity;
 import com.example.lib_common_ui.page_indicator.ScaleTransitionPagerTitleView;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -25,7 +26,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerInd
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
-public class HomeActivity extends FragmentActivity {
+public class HomeActivity extends BaseActivity {
 
     // 指定首页要出现的卡片
     private static final CHANNEL[] CHANNELS = new CHANNEL[]{
