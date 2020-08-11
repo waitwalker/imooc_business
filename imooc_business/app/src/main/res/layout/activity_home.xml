@@ -46,15 +46,26 @@
                 android:layout_height="wrap_content" />
 
         </RelativeLayout>
-        
 
+        <androidx.viewpager.widget.ViewPager
+            android:layout_below="@id/title_layout"
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </RelativeLayout>
 
     <!--    存放侧滑菜单-->
     <RelativeLayout
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:layout_marginEnd="25dp"
+        android:id="@+id/left_drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </RelativeLayout>
 
