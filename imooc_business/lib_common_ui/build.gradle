@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion this.rootProject.android.compileSdkVersion
-    buildToolsVersion "29.0.3"
+    buildToolsVersion this.rootProject.android.buildToolsVersion
 
     defaultConfig {
         minSdkVersion this.rootProject.android.minSdkVersion
@@ -11,8 +11,8 @@ android {
         versionName this.rootProject.android.versionName
         multiDexEnabled this.rootProject.android.multiDexEnable
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        testInstrumentationRunner this.rootProject.android.testInstrumentationRunner
+        consumerProguardFiles this.rootProject.android.consumerProguardFiles
     }
 
     buildTypes {
@@ -26,8 +26,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation this.rootProject.depsLibs.appcompat
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation this.rootProject.depsLibs.junit
+    implementation this.rootProject.depsLibs.extJunit
+    implementation this.rootProject.depsLibs.espressoCore
 
 }
