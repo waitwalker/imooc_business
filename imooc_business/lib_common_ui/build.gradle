@@ -28,6 +28,6 @@ dependencies {
     implementation this.rootProject.depsLibs.appcompat
     implementation this.rootProject.depsLibs.junit
     implementation this.rootProject.depsLibs.extJunit
-    implementation this.rootProject.depsLibs.espressoCore
+    androidTestImplementation this.rootProject.depsLibs.espressoCore
 
 }

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion this.rootProject.android.compileSdkVersion
-    buildToolsVersion "29.0.3"
+    buildToolsVersion this.rootProject.android.buildToolsVersion
 
     defaultConfig {
         applicationId this.rootProject.android.applicationId
@@ -12,7 +12,7 @@ android {
         versionName this.rootProject.android.versionName
         multiDexEnabled this.rootProject.android.multiDexEnable
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner this.rootProject.android.testInstrumentationRunner
     }
 
     buildTypes {
@@ -26,9 +26,9 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation this.rootProject.depsLibs.appcompat
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation this.rootProject.depsLibs.constraintlayout
+    testImplementation this.rootProject.depsLibs.junit
+    androidTestImplementation this.rootProject.depsLibs.extJunit
+    androidTestImplementation this.rootProject.depsLibs.espressoCore
 
 }
