@@ -8,13 +8,16 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.example.imooc_business.model.CHANNEL;
+import com.example.lib_common_ui.page_indicator.ScaleTransitionPagerTitleView;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.ViewPagerHelper;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
@@ -55,7 +58,7 @@ public class HomeActivity extends FragmentActivity {
         initMagicIndicator();
     }
 
-    // 初始化page 指示器
+    // 初始化page 指示器 类似于联动效果的上部
     private void initMagicIndicator() {
         MagicIndicator magicIndicator = findViewById(R.id.magic_indicator);
         magicIndicator.setBackgroundColor(Color.WHITE);
@@ -70,17 +73,42 @@ public class HomeActivity extends FragmentActivity {
 
             // 初始化title view 效果
             @Override
-            public IPagerTitleView getTitleView(Context context, int index) {
-                //SimplePagerTitleView simplePagerTitleView = new ScaleTr(this);
-                return null;
+            public IPagerTitleView getTitleView(Context context, final int index) {
+                SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(HomeActivity.this);
+                simplePagerTitleView.setText(CHANNELS[index].getKey());
+                simplePagerTitleView.setTextSize(19);
+                simplePagerTitleView.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                // 正常颜色
+                simplePagerTitleView.setNormalColor(Color.parseColor("#999999"));
+                //选中颜色
+                simplePagerTitleView.setSelectedColor(Color.parseColor("#333333"));
+
+                // 设置标题的点击事件
+                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mViewPager.setCurrentItem(index);
+                    }
+                });
+                return simplePagerTitleView;
             }
 
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 return null;
             }
+
+            @Override
+            public float getTitleWeight(Context context, int index) {
+                return 1.0f;
+            }
         });
 
+        // 指示器设置中间的导航标题效果
+        magicIndicator.setNavigator(commonNavigator);
+
+        // 上下联动效果绑定
+        ViewPagerHelper.bind(magicIndicator, mViewPager);
     }
 
     private void transferredParameter() {
