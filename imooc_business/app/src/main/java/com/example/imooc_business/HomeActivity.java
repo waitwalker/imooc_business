@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import net.lucode.hackware.magicindicator.MagicIndicator;
 
 public class HomeActivity extends FragmentActivity {
 

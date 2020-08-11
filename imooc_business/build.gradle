@@ -51,6 +51,8 @@ allprojects {
                 password 'etiantian'
             }
         }
+
+        maven { url "https://jitpack.io" }
     }
 }
 
