@@ -61,6 +61,7 @@ public class HomeActivity extends BaseActivity {
         mSearchView = findViewById(R.id.search_view);
         mViewPager = findViewById(R.id.view_pager);
         mAdapter = new HomeAdapter(getSupportFragmentManager(), CHANNELS);
+        mViewPager.setAdapter(mAdapter);
         initMagicIndicator();
     }
 

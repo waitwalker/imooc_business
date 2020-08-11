@@ -1,4 +1,4 @@
-package com.example.imooc_business.view.mine;
+package com.example.imooc_business.view.friend;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,15 +14,15 @@ import com.example.imooc_business.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MineFragment#newInstance} factory method to
+ * Use the {@link FriendFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MineFragment extends Fragment {
+public class FriendFragment extends Fragment {
 
     private Context mContext;
 
-    public static MineFragment newInstance() {
-        MineFragment fragment = new MineFragment();
+    public static FriendFragment newInstance() {
+        FriendFragment fragment = new FriendFragment();
         return fragment;
     }
 
@@ -35,7 +35,6 @@ public class MineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mine, container, false);
+        return inflater.inflate(R.layout.fragment_friend, container, false);
     }
 }

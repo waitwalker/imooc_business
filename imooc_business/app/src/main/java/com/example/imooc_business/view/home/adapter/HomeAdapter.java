@@ -6,6 +6,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.imooc_business.model.CHANNEL;
+import com.example.imooc_business.view.discory.DiscoryFragment;
+import com.example.imooc_business.view.friend.FriendFragment;
+import com.example.imooc_business.view.mine.MineFragment;
+import com.example.imooc_business.view.video.VideoFragment;
 
 // 首页ViewPager adapter
 public class HomeAdapter extends FragmentPagerAdapter {
@@ -24,13 +28,13 @@ public class HomeAdapter extends FragmentPagerAdapter {
         int type = mList[position].getValue();
         switch (type){
             case CHANNEL.MINE_ID:
-                break;
+                return MineFragment.newInstance();
             case CHANNEL.DISCORY_ID:
-                break;
+                return DiscoryFragment.newInstance();
             case CHANNEL.FRIEND_ID:
-                break;
+                return FriendFragment.newInstance();
             case CHANNEL.VIDEO_ID:
-                break;
+                return VideoFragment.newInstance();
         }
         return null;
     }
