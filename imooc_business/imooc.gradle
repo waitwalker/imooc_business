@@ -3,6 +3,7 @@ ext{
     android = [
             applicationId : "com.example.imooc_voice",
             compileSdkVersion : 29,
+            buildToolsVersion : "29.0.3",
             minSdkVersion : 21,
             targetSdkVersion : 29,
             versionCode : 1,
@@ -12,9 +13,17 @@ ext{
 
     depsVerison = [
             appcompat : '1.1.0',
+            junit : '4.13',
+            extJunit : '1.1.1',
+            espressoCore : '3.2.0',
+            constraintlayout : '1.1.3',
     ]
 
     depsLibs = [
-            appcompat : "androidx.appcompat:appcompat:${depsVerison.appcompat}"
+            appcompat : "androidx.appcompat:appcompat:${depsVerison.appcompat}",
+            junit: "junit:junit:${depsVerison.junit}",
+            extJunit: "androidx.test.ext:junit:${depsVerison.extJunit}",
+            espressoCore : "androidx.test.espresso:espresso-core:${depsVerison.espressoCore}",
+            constraintlayout : "androidx.constraintlayout:constraintlayout:${depsVerison.constraintlayout}",
     ]
 }
