@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 
+import com.example.imooc_business.view.home.HomeActivity;
+
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnClickListener {
 
     @Override

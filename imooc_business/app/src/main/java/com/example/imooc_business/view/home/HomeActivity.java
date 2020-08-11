@@ -1,6 +1,5 @@
-package com.example.imooc_business;
+package com.example.imooc_business.view.home;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -13,7 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.imooc_business.R;
 import com.example.imooc_business.model.CHANNEL;
+import com.example.imooc_business.view.home.adapter.HomeAdapter;
 import com.example.lib_common_ui.page_indicator.ScaleTransitionPagerTitleView;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -37,6 +38,8 @@ public class HomeActivity extends FragmentActivity {
     private View mSearchView;
     private ViewPager mViewPager;
 
+    private HomeAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +53,13 @@ public class HomeActivity extends FragmentActivity {
 
     private void initData() {}
 
+    // 初始化view
     private void initView() {
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggleView = findViewById(R.id.toggle_view);
         mSearchView = findViewById(R.id.search_view);
         mViewPager = findViewById(R.id.view_pager);
+        mAdapter = new HomeAdapter(getSupportFragmentManager(), CHANNELS);
         initMagicIndicator();
     }
 
