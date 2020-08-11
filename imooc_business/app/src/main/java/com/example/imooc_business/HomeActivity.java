@@ -5,7 +5,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,10 @@ import android.view.View;
 import com.example.imooc_business.model.CHANNEL;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 
 public class HomeActivity extends FragmentActivity {
 
@@ -45,6 +51,33 @@ public class HomeActivity extends FragmentActivity {
         mToggleView = findViewById(R.id.toggle_view);
         mSearchView = findViewById(R.id.search_view);
         mViewPager = findViewById(R.id.view_pager);
+        initMagicIndicator();
+    }
+
+    // 初始化page 指示器
+    private void initMagicIndicator() {
+        MagicIndicator magicIndicator = findViewById(R.id.magic_indicator);
+        magicIndicator.setBackgroundColor(Color.WHITE);
+
+        // 为指示器创建一个navigator
+        CommonNavigator commonNavigator = new CommonNavigator(this);
+        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
+            @Override
+            public int getCount() {
+                return 0;
+            }
+
+            @Override
+            public IPagerTitleView getTitleView(Context context, int index) {
+                return null;
+            }
+
+            @Override
+            public IPagerIndicator getIndicator(Context context) {
+                return null;
+            }
+        });
+
     }
 
     private void transferredParameter() {
