@@ -19,6 +19,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigat
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
 public class HomeActivity extends FragmentActivity {
 
@@ -64,11 +65,13 @@ public class HomeActivity extends FragmentActivity {
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
-                return 0;
+                return CHANNELS == null? 0 : CHANNELS.length;
             }
 
+            // 初始化title view 效果
             @Override
             public IPagerTitleView getTitleView(Context context, int index) {
+                //SimplePagerTitleView simplePagerTitleView = new ScaleTr(this);
                 return null;
             }
 

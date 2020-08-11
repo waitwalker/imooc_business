@@ -25,6 +25,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    api rootProject.depsLibs.magicindicator
     implementation this.rootProject.depsLibs.appcompat
     testImplementation this.rootProject.depsLibs.junit
     androidTestImplementation this.rootProject.depsLibs.extJunit
