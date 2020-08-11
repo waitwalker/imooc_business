@@ -25,15 +25,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
-    // 基础UI依赖添加
-    implementation project(':lib_common_ui')
     implementation this.rootProject.depsLibs.magicindicator
+    implementation this.rootProject.depsLibs.okhttp
     implementation this.rootProject.depsLibs.appcompat
     implementation this.rootProject.depsLibs.constraintlayout
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation this.rootProject.depsLibs.junit
     androidTestImplementation this.rootProject.depsLibs.extJunit
     androidTestImplementation this.rootProject.depsLibs.espressoCore
+
+    // 基础UI依赖添加
+    implementation project(':lib_common_ui')
+
+    // 网络库
+    implementation project(':lib_network')
 
 }

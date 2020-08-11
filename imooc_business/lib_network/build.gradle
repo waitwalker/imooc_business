@@ -29,5 +29,6 @@ dependencies {
     testImplementation this.rootProject.depsLibs.junit
     androidTestImplementation this.rootProject.depsLibs.extJunit
     androidTestImplementation this.rootProject.depsLibs.espressoCore
+    api rootProject.depsLibs.okhttp
 
 }
