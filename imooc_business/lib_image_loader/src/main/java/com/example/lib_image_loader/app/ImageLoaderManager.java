@@ -3,7 +3,10 @@ package com.example.lib_image_loader.app;
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+import android.widget.SimpleAdapter;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
@@ -13,6 +16,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.lib_image_loader.R;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
@@ -70,6 +75,20 @@ public class ImageLoaderManager {
                                 .create(imageView.getResources(), resource);
                         drawable.setCircular(true);
                         imageView.setImageDrawable(drawable);
+                    }
+                });
+    }
+
+    public void displayImageForViewGroup(ImageView imageView, String url) {
+        Glide.with(imageView.getContext())
+                .asBitmap()
+                .load(url)
+                .apply(initCommonRequestOption())
+                .into(new SimpleTarget<Bitmap>(){
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        final Bitmap bitmap = resource;
+
                     }
                 });
     }

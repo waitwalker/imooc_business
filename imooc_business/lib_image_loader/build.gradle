@@ -33,4 +33,8 @@ dependencies {
     implementation rootProject.depsLibs.glide
     annotationProcessor rootProject.depsLibs.glidecompiler
 
+    //占位主工程rxjava
+    compileOnly rootProject.depsLibs.rxjava
+    compileOnly rootProject.depsLibs.rxandroid
+
 }
