@@ -2,8 +2,11 @@ package com.example.lib_image_loader.app;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.SimpleAdapter;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,8 +22,14 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.lib_image_loader.R;
+import com.example.lib_image_loader.util.Utils;
 
-import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
+
 
 ///
 /// @name ImageLoaderManager
@@ -79,16 +88,35 @@ public class ImageLoaderManager {
                 });
     }
 
-    public void displayImageForViewGroup(ImageView imageView, String url) {
-        Glide.with(imageView.getContext())
+    public void displayImageForViewGroup(final ViewGroup group, String url) {
+        Glide.with(group.getContext())
                 .asBitmap()
                 .load(url)
                 .apply(initCommonRequestOption())
-                .into(new SimpleTarget<Bitmap>(){
+                .into(new SimpleTarget<Bitmap>() {//设置宽高
+                    @SuppressLint("CheckResult")
                     @Override
-                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                        final Bitmap bitmap = resource;
-
+                    public void onResourceReady(@NonNull Bitmap resource,
+                                                @Nullable Transition<? super Bitmap> transition) {
+                        final Bitmap res = resource;
+                        Observable.just(resource)
+                                .map(new Function<Bitmap, Drawable>() {
+                                    @Override
+                                    public Drawable apply(Bitmap bitmap) {
+                                        Drawable drawable = new BitmapDrawable(
+                                                Utils.doBlur(res, 100, true)
+                                        );
+                                        return drawable;
+                                    }
+                                })
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Consumer<Drawable>() {
+                                    @Override
+                                    public void accept(Drawable drawable) throws Exception {
+                                        group.setBackground(drawable);
+                                    }
+                                });
                     }
                 });
     }
