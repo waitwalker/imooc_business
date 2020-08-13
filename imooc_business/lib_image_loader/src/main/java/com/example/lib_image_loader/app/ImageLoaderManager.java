@@ -1,12 +1,14 @@
 package com.example.lib_image_loader.app;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
 
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.bumptech.glide.request.target.NotificationTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
@@ -157,6 +160,35 @@ public class ImageLoaderManager {
     }
 
 
+    ///
+    /// @name displayImageForNotification
+    /// @description 为Notification中的id控件加载图片
+    /// @author liuca
+    /// @date 2020/8/13
+    ///
+    public void displayImageForNotification(Context context,
+                                            int id, //控件id
+                                            RemoteViews remoteViews,
+                                            Notification notification,
+                                            int NOTIFICATION_ID,
+                                            String url) {
+        this.displayImageForTarget(context, initNotificationTarget(context, id, remoteViews, notification, NOTIFICATION_ID), url);
+    }
+
+    ///
+    /// @name initNotificationTarget
+    /// @description 构建一个notification target
+    /// @author liuca
+    /// @date 2020/8/13
+    ///
+    private NotificationTarget initNotificationTarget(Context context,
+                                                      int id, //控件id
+                                                      RemoteViews remoteViews,
+                                                      Notification notification,
+                                                      int NOTIFICATION_ID) {
+        NotificationTarget notificationTarget = new NotificationTarget(context, id, remoteViews, notification, NOTIFICATION_ID);
+        return notificationTarget;
+    }
 
     @SuppressLint("CheckResult")
     private RequestOptions initCommonRequestOption() {
