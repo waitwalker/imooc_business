@@ -1,6 +1,7 @@
 package com.example.lib_image_loader.app;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -20,8 +21,10 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.lib_image_loader.R;
+import com.example.lib_image_loader.util.CustomRequestListener;
 import com.example.lib_image_loader.util.Utils;
 
 import io.reactivex.Observable;
@@ -29,6 +32,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
+
+import static com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.withCrossFade;
 
 
 ///
@@ -102,8 +107,7 @@ public class ImageLoaderManager {
                 .into(new SimpleTarget<Bitmap>() {//设置宽高
                     @SuppressLint("CheckResult")
                     @Override
-                    public void onResourceReady(@NonNull Bitmap resource,
-                                                @Nullable Transition<? super Bitmap> transition) {
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                         final Bitmap res = resource;
                         Observable.just(resource)
                                 .map(new Function<Bitmap, Drawable>() {
@@ -124,6 +128,35 @@ public class ImageLoaderManager {
                     }
                 });
     }
+
+    ///
+    /// @name displayImageForTarget
+    /// @description 为非View加载图片
+    /// @author liuca
+    /// @date 2020/8/13
+    ///
+    private void displayImageForTarget(Context context, Target target, String url) {
+        this.displayImageForTarget(context, target, url, null);
+    }
+
+    ///
+    /// @name displayImageForTarget
+    /// @description 为非View加载图片
+    /// @author liuca
+    /// @date 2020/8/13
+    ///
+    private void displayImageForTarget(Context context, Target target, String url, CustomRequestListener listener) {
+        Glide.with(context)
+                .asBitmap()
+                .load(url)
+                .apply(initCommonRequestOption())
+                .transition(withCrossFade())
+                .fitCenter()
+                .listener(listener)
+                .into(target);
+    }
+
+
 
     @SuppressLint("CheckResult")
     private RequestOptions initCommonRequestOption() {
