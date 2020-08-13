@@ -29,5 +29,8 @@ dependencies {
     testImplementation this.rootProject.depsLibs.junit
     androidTestImplementation this.rootProject.depsLibs.extJunit
     androidTestImplementation this.rootProject.depsLibs.espressoCore
+    //glide相关依赖
+    implementation rootProject.depsLibs.glide
+    annotationProcessor rootProject.depsLibs.glidecompiler
 
 }
