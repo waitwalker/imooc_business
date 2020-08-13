@@ -1,5 +1,7 @@
 package com.example.lib_network.request;
 
+import android.util.Log;
+
 import java.util.Map;
 
 import okhttp3.FormBody;
@@ -40,6 +42,9 @@ public class CommonRequest {
             }
         }
 
+        Log.d("1","post请求完整链接:" + url);
+        Log.d("1","post请求完整参数:" + url);
+
         // 构建请求头
         Headers.Builder mHeadersBuilder = new Headers.Builder();
         if (headers != null) {
@@ -48,6 +53,8 @@ public class CommonRequest {
                 mHeadersBuilder.add(entry.getKey(),entry.getValue());
             }
         }
+
+        Log.d("1","post请求完整请求头:" + mHeadersBuilder.build().toString());
 
         // 构建Request对象 构建者模式,将请求url,请求头,请全体传进去
         Request request = new Request.Builder()
@@ -82,6 +89,8 @@ public class CommonRequest {
             urlBuilder.append(entry.getKey()).append("=").append(entry.getValue());
         }
 
+        Log.d("1","get请求完整链接:" + urlBuilder.toString());
+
         // 构建请求头
         Headers.Builder mHeadersBuilder = new Headers.Builder();
         if (headers != null) {
@@ -90,6 +99,8 @@ public class CommonRequest {
                 mHeadersBuilder.add(entry.getKey(),entry.getValue());
             }
         }
+
+        Log.d("1", "get请求完整请求头:" + mHeadersBuilder.build().toString());
 
         Request request = new Request.Builder()
                 .url(urlBuilder.toString())
