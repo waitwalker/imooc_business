@@ -64,8 +64,64 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ScrollView
+            android:scrollbars="none"
+            android:id="@+id/divider"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="25dp"
+                        android:visibility="gone"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/avatar_view"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"/>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/unlogin_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textSize="13sp"
+                            android:textColor="@color/color_333333"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/login_net_music_hint"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textSize="13sp"
+                            android:textColor="@color/color_333333"
+                            android:text="@string/login_net_music_sync_hint"
+                            android:gravity="center"
+                            android:layout_marginTop="2dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/login_time_now_drawer"
+                            android:paddingStart="40dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="40dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/login_time_now"
+                            android:textColor="@color/color_333333"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </ScrollView>
 
     </RelativeLayout>
 
