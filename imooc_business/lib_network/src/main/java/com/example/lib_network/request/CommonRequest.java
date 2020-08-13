@@ -16,7 +16,7 @@ public class CommonRequest {
 
     ///
     /// @name createPostRequest
-    /// @description 构建post 请求对象
+    /// @description 构建不带请求头的post 请求对象
     /// @author liuca
     /// @date 2020/8/13
     ///
@@ -54,6 +54,47 @@ public class CommonRequest {
                 .url(url)
                 .headers(mHeadersBuilder.build())
                 .post(mFormBodyBuilder.build())
+                .build();
+        return request;
+    }
+
+    ///
+    /// @name 构建无请求头的Request对象
+    /// @description 
+    /// @author liuca
+    /// @date 2020/8/13
+    ///
+    public static Request createGetRequest(String url, RequestParams params) {
+        return createGetRequest(url, params,null);
+    }
+    
+    ///
+    /// @name createGetRequest
+    /// @description 构建有请求头的Request对象
+    /// @author liuca
+    /// @date 2020/8/13
+    ///
+    public static Request createGetRequest(String url, RequestParams params, RequestParams headers) {
+        StringBuilder urlBuilder = new StringBuilder(url).append("?");
+
+        // 构建请求参数
+        for (Map.Entry<String,String> entry:params.urlParams.entrySet()) {
+            urlBuilder.append(entry.getKey()).append("=").append(entry.getValue());
+        }
+
+        // 构建请求头
+        Headers.Builder mHeadersBuilder = new Headers.Builder();
+        if (headers != null) {
+            for (Map.Entry<String,String> entry: headers.urlParams.entrySet()) {
+                //请求头遍历
+                mHeadersBuilder.add(entry.getKey(),entry.getValue());
+            }
+        }
+
+        Request request = new Request.Builder()
+                .url(urlBuilder.toString())
+                .headers(mHeadersBuilder.build())
+                .get()
                 .build();
         return request;
     }
