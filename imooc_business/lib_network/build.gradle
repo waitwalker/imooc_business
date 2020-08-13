@@ -33,4 +33,7 @@ dependencies {
     // 引入okhttp依赖
     api rootProject.depsLibs.okhttp
 
+    // 引入Gson依赖
+    api rootProject.depsLibs.gson
+
 }
