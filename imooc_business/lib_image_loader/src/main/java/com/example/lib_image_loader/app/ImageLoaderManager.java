@@ -88,7 +88,13 @@ public class ImageLoaderManager {
                 });
     }
 
-    public void displayImageForViewGroup(final ViewGroup group, String url) {
+    ///
+    /// @name displayImageForViewGroup
+    /// @description 为ViewGroup添加背景
+    /// @author liuca
+    /// @date 2020/8/13
+    ///
+    public void displayImageForViewGroup(final ViewGroup group, String url, final boolean blur) {
         Glide.with(group.getContext())
                 .asBitmap()
                 .load(url)
@@ -103,9 +109,7 @@ public class ImageLoaderManager {
                                 .map(new Function<Bitmap, Drawable>() {
                                     @Override
                                     public Drawable apply(Bitmap bitmap) {
-                                        Drawable drawable = new BitmapDrawable(
-                                                Utils.doBlur(res, 100, true)
-                                        );
+                                        Drawable drawable = new BitmapDrawable(blur ? Utils.doBlur(res, 100, true) : res);
                                         return drawable;
                                     }
                                 })
