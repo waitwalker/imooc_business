@@ -59,6 +59,11 @@ dependencies {
 
 }
 
+greendao {
+    schemaVersion 1 //数据库版本
+    daoPackage 'com.example.lib_audio.mediaplayer.db' //dao,master类所在包
+}
+
 // 配置maven上传相关参数
 uploadArchives {
     repositories {
