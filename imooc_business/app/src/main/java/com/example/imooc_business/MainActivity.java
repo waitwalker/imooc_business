@@ -12,13 +12,16 @@ import android.widget.CompoundButton;
 
 import com.example.imooc_business.view.home.HomeActivity;
 
+import org.greenrobot.eventbus.EventBus;
+
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // EventBus注册监听
+        EventBus.getDefault().register(this);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(this);
     }
@@ -41,5 +44,12 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             String string = data.getStringExtra("value");
             Log.d("1","反向传递的参数:" + string);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // EventBus 取消监听
+        EventBus.getDefault().unregister(this);
     }
 }
