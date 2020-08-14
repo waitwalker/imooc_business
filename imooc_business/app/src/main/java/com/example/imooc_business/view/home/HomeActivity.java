@@ -17,10 +17,12 @@ import android.widget.ImageView;
 import com.example.imooc_business.R;
 import com.example.imooc_business.manager.UserManager;
 import com.example.imooc_business.model.CHANNEL;
+import com.example.imooc_business.model.login.LoginEvent;
 import com.example.imooc_business.view.home.adapter.HomeAdapter;
 import com.example.imooc_business.view.login.LoginActivity;
 import com.example.lib_common_ui.base.BaseActivity;
 import com.example.lib_common_ui.page_indicator.ScaleTransitionPagerTitleView;
+import com.example.lib_image_loader.app.ImageLoaderManager;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -29,6 +31,10 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNav
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class HomeActivity extends BaseActivity implements CompoundButton.OnClickListener {
 
@@ -55,7 +61,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         transferredParameter();
-
+        EventBus.getDefault().register(this);
         initView();
         initData();
 
@@ -197,5 +203,18 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnClick
                 Log.d("1","检查更新");
                 break;
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onLoginEvent(LoginEvent event) {
+        unLogginLayout.setVisibility(View.GONE);
+        mPhotoView.setVisibility(View.VISIBLE);
+        ImageLoaderManager.getInstance().displayImageForCircle(mPhotoView, UserManager.getInstance().getUser().data.photoUrl);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
