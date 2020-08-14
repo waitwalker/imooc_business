@@ -206,9 +206,171 @@
                     android:layout_marginTop="25dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    app:hIcon="@mipmap/anc"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:hTipVisiblity="false"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:rightText="可识别其他app歌曲"
+                    app:tileText="听歌识曲"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    app:hIcon="@mipmap/anc"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:hTipVisiblity="false"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:rightText="陈百祥北京"
+                    app:tileText="演出"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    app:hIcon="@mipmap/ann"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:hTipVisiblity="false"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:rightText="数显tws89元抢"
+                    app:tileText="商城"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/ank"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="游戏推荐"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/ang"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="附近的人"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    app:hIcon="@mipmap/anc"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:hTipVisiblity="false"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:rightText="超中毒抖音神曲"
+                    app:tileText="口袋彩铃"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <!--分割线-->
+                <View
+                    android:background="#dddddd"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"/>
+
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/ani"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="我的订单"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/anm"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="定时停止播放"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:id="@+id/home_qrcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/anh"
+                    app:hTipVisiblity="false"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:tileText="扫一扫"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/ano"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="音乐闹钟"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/anq"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="在线听歌免流量"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/ank"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="优惠券"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    app:hIcon="@mipmap/anc"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:hTipVisiblity="false"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:rightText="青少年模式"
+                    app:tileText="未开启"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
 
             </LinearLayout>
 
