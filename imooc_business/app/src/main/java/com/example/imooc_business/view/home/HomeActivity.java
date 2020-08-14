@@ -1,7 +1,6 @@
 package com.example.imooc_business.view.home;
 
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
@@ -16,8 +15,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import com.example.imooc_business.R;
+import com.example.imooc_business.manager.UserManager;
 import com.example.imooc_business.model.CHANNEL;
 import com.example.imooc_business.view.home.adapter.HomeAdapter;
+import com.example.imooc_business.view.login.LoginActivity;
 import com.example.lib_common_ui.base.BaseActivity;
 import com.example.lib_common_ui.page_indicator.ScaleTransitionPagerTitleView;
 
@@ -169,6 +170,11 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnClick
                 System.exit(0);
                 break;
             case R.id.unlogin_layout:
+                if (!UserManager.getInstance().hasLogin()) {
+                    navigateTo(this, LoginActivity.class);
+                } else {
+                    mDrawerLayout.closeDrawer(Gravity.LEFT);
+                }
                 Log.d("1","抽屉登录被点击");
                 break;
             case R.id.toggle_view:
