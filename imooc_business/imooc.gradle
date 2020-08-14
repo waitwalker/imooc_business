@@ -27,6 +27,9 @@ ext{
             rxjava         : '2.2.9',
             rxandroid      : '2.1.1',
             eventbus       : '3.2.0',
+            greendao       : '3.3.0',
+            arouterapi     : '1.5.0',
+            aroutercompiler: '1.2.2',
     ]
 
     depsLibs = [
@@ -43,5 +46,10 @@ ext{
             rxjava         : "io.reactivex.rxjava2:rxjava:${depsVersion.rxjava}",
             rxandroid      : "io.reactivex.rxjava2:rxandroid:${depsVersion.rxandroid}",
             eventbus       : "org.greenrobot:eventbus:${depsVersion.eventbus}",
+            material         : 'com.google.android.material:material:1.2.0',
+            recyclerview   : 'androidx.recyclerview:recyclerview:1.1.0',
+            greendao       : "org.greenrobot:greendao:${depsVersion.greendao}",
+            arouterapi     : "com.alibaba:arouter-api:${depsVersion.arouterapi}",
+            aroutercompiler: "com.alibaba:arouter-compiler:${depsVersion.aroutercompiler}",
     ]
 }
