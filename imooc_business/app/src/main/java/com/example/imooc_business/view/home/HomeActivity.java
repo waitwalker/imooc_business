@@ -66,6 +66,7 @@ public class HomeActivity extends BaseActivity implements CompoundButton.OnClick
     private void initView() {
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggleView = findViewById(R.id.toggle_view);
+        mToggleView.setOnClickListener(this);
         mSearchView = findViewById(R.id.search_view);
         mViewPager = findViewById(R.id.view_pager);
         mAdapter = new HomeAdapter(getSupportFragmentManager(), CHANNELS);
