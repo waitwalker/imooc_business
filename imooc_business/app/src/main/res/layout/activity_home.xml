@@ -121,10 +121,10 @@
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:paddingEnd="30dp"
-                    android:paddingStart="30dp"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="40dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <com.example.lib_common_ui.VerticalItemView
@@ -132,72 +132,72 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:icon="@mipmap/abi"
-                        app:iconHeight="35dp"
-                        app:iconWidth="35dp"
+                        app:iconHeight="40dp"
+                        app:iconWidth="40dp"
                         app:infoText="我的消息"
                         app:infoTextColor="@color/color_333333"
                         app:infoTextMarginTop="5dp"
-                        app:infoTextSize="11sp"
+                        app:infoTextSize="12sp"
                         app:tipBg="@drawable/bg_home_tip"
-                        app:tipPaddingRight="2dp"
-                        app:tipPaddingTop="2dp"
+                        app:tipPaddingRight="5dp"
+                        app:tipPaddingTop="5dp"
                         app:tipText="1"
                         app:tipTextColor="@color/color_white"
-                        app:tipTextSize="11sp" />
+                        app:tipTextSize="12sp" />
 
                     <com.example.lib_common_ui.VerticalItemView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:icon="@mipmap/abj"
-                        app:iconHeight="35dp"
-                        app:iconWidth="35dp"
+                        app:iconHeight="40dp"
+                        app:iconWidth="40dp"
                         app:infoText="我的好友"
                         app:infoTextColor="@color/color_333333"
                         app:infoTextMarginTop="5dp"
-                        app:infoTextSize="11sp"
+                        app:infoTextSize="12sp"
                         app:tipBg="@drawable/bg_home_tip"
-                        app:tipPaddingRight="2dp"
-                        app:tipPaddingTop="2dp"
+                        app:tipPaddingRight="5dp"
+                        app:tipPaddingTop="5dp"
                         app:tipText="1"
                         app:tipTextColor="@color/color_white"
-                        app:tipTextSize="11sp" />
+                        app:tipTextSize="12sp" />
 
                     <com.example.lib_common_ui.VerticalItemView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:icon="@mipmap/abk"
-                        app:iconHeight="35dp"
-                        app:iconWidth="35dp"
+                        app:iconHeight="40dp"
+                        app:iconWidth="40dp"
                         app:infoText="个性换肤"
                         app:infoTextColor="@color/color_333333"
                         app:infoTextMarginTop="5dp"
-                        app:infoTextSize="11sp"
+                        app:infoTextSize="12sp"
                         app:tipBg="@drawable/bg_home_tip"
-                        app:tipPaddingRight="2dp"
-                        app:tipPaddingTop="2dp"
+                        app:tipPaddingRight="5dp"
+                        app:tipPaddingTop="5dp"
                         app:tipText="1"
                         app:tipTextColor="@color/color_white"
-                        app:tipTextSize="11sp" />
+                        app:tipTextSize="12sp" />
 
                     <com.example.lib_common_ui.VerticalItemView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:icon="@mipmap/abi"
-                        app:iconHeight="35dp"
-                        app:iconWidth="35dp"
+                        app:iconHeight="40dp"
+                        app:iconWidth="40dp"
                         app:infoText="听歌识曲"
                         app:infoTextColor="@color/color_333333"
                         app:infoTextMarginTop="5dp"
-                        app:infoTextSize="11sp"
+                        app:infoTextSize="12sp"
                         app:tipBg="@drawable/bg_home_tip"
-                        app:tipPaddingRight="2dp"
-                        app:tipPaddingTop="2dp"
+                        app:tipPaddingRight="5dp"
+                        app:tipPaddingTop="5dp"
                         app:tipText="1"
                         app:tipTextColor="@color/color_white"
-                        app:tipTextSize="11sp" />
+                        app:tipTextSize="12sp" />
 
                 </LinearLayout>
             </LinearLayout>
