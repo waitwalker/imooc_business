@@ -329,6 +329,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hIcon="@mipmap/ano"
+                    android:id="@+id/home_music"
                     app:hTipVisiblity="false"
                     app:hIconWidth="30dp"
                     app:hIconHeight="30dp"
@@ -339,6 +340,7 @@
                 <com.example.lib_common_ui.HorizontalItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/online_music_view"
                     app:hIcon="@mipmap/anq"
                     app:hTipVisiblity="false"
                     app:hIconWidth="30dp"
@@ -350,13 +352,25 @@
                 <com.example.lib_common_ui.HorizontalItemView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:hIcon="@mipmap/ank"
+                    app:hIcon="@mipmap/ang"
                     app:hTipVisiblity="false"
                     app:hIconWidth="30dp"
                     app:hIconHeight="30dp"
                     app:paddingLeft="15dp"
                     app:paddingRight="20dp"
                     app:tileText="优惠券"/>
+
+                <com.example.lib_common_ui.HorizontalItemView
+                    android:id="@+id/check_update_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hIcon="@mipmap/ank"
+                    app:hTipVisiblity="false"
+                    app:hIconWidth="30dp"
+                    app:hIconHeight="30dp"
+                    app:paddingLeft="15dp"
+                    app:paddingRight="20dp"
+                    app:tileText="检查更新"/>
 
                 <com.example.lib_common_ui.HorizontalItemView
                     app:hIcon="@mipmap/anc"
@@ -369,8 +383,6 @@
                     app:tileText="未开启"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-
-
 
             </LinearLayout>
 
@@ -446,6 +458,7 @@
                     android:layout_width="6dp"
                     android:layout_height="match_parent"/>
                 <TextView
+                    android:id="@+id/exit_layout"
                     android:textSize="16sp"
                     android:textColor="@color/color_333333"
                     android:text="退出"
