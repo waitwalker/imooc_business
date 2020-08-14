@@ -1,6 +1,5 @@
 package com.example.imooc_business.view.login;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
