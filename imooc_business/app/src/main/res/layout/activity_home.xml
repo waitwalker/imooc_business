@@ -114,7 +114,7 @@
                             android:paddingEnd="40dp"
                             android:paddingBottom="5dp"
                             android:text="@string/login_time_now"
-                            android:textColor="@color/color_333333"
+                            android:textColor="@color/color_white"
                             android:textSize="15sp"/>
                     </LinearLayout>
 
