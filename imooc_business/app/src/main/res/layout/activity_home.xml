@@ -65,7 +65,7 @@
         android:layout_height="match_parent">
         <ScrollView
             android:scrollbars="none"
-            android:id="@+id/divider"
+            android:layout_above="@id/divider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -375,6 +375,86 @@
             </LinearLayout>
 
         </ScrollView>
+
+        <!--分割线-->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_alignTop="@id/operator_view"
+            android:background="#dddddd" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/operator_view"
+            android:layout_width="match_parent"
+            android:layout_height="52dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/baz"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="@color/color_333333"
+                    android:text="夜间模式"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/bb1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="@color/color_333333"
+                    android:text="设置"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/baq"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"/>
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:textSize="16sp"
+                    android:textColor="@color/color_333333"
+                    android:text="退出"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 
