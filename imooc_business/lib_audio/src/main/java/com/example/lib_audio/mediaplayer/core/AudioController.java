@@ -3,7 +3,10 @@ package com.example.lib_audio.mediaplayer.core;
 import com.example.lib_audio.mediaplayer.exception.AudioQueueEmptyException;
 import com.example.lib_audio.mediaplayer.model.AudioBean;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 ///
 /// @name AudioController
@@ -44,6 +47,7 @@ public class AudioController {
     /// @date 2020/8/15
     ///
     private AudioController() {
+        EventBus.getDefault().register(this);
         mAudioPlayer = new AudioPlayer();
         mQueue = new ArrayList<>();
         mQueueIndex = 0;
@@ -120,10 +124,11 @@ public class AudioController {
     }
 
     private AudioBean getNowPlaying() {
-        if (mQueue != null && mQueue.size() > 0) {
+        if (mQueue != null && !mQueue.isEmpty() && mQueue.size() > 0) {
             return mQueue.get(mQueueIndex);
+        } else {
+            throw new AudioQueueEmptyException("当前播放队列为空,请先设置播放队列");
         }
-        return null;
     }
 
     ///
@@ -165,6 +170,7 @@ public class AudioController {
     ///
     public void release() {
         mAudioPlayer.release();
+        EventBus.getDefault().unregister(this);
     }
 
     ///
@@ -179,7 +185,17 @@ public class AudioController {
     }
 
     private AudioBean getNextPlaying() {
-        return null;
+        switch (mPlayMode) {
+            case LOOP:
+                mQueueIndex = (mQueueIndex + 1) % mQueue.size();
+                break;
+            case RANDOM:
+                mQueueIndex = new Random().nextInt(mQueue.size()) % mQueue.size();
+                break;
+            case REPEAT:
+                break;
+        }
+        return getNowPlaying();
     }
 
     ///
