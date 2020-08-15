@@ -1,5 +1,6 @@
 package com.example.lib_audio.mediaplayer.core;
 
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.wifi.WifiManager;
@@ -9,6 +10,10 @@ import android.os.Message;
 import android.os.PowerManager;
 
 import androidx.annotation.NonNull;
+
+import com.example.lib_audio.app.AudioHelper;
+
+import java.util.Objects;
 
 ///
 /// @name AudioPlayer
@@ -46,8 +51,14 @@ public class AudioPlayer implements
         }
     };
 
+    ///
+    /// @name AudioPlayer
+    /// @description 构造方法 初始化一些成员变量
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     public AudioPlayer() {
-
+        init();
     }
 
     private void init() {
@@ -61,7 +72,12 @@ public class AudioPlayer implements
         mMediaPlayer.setOnBufferingUpdateListener(this);
         mMediaPlayer.setOnErrorListener(this);
 
+        // 初始化WiFIlock
+        mWifiLock = ((WifiManager) Objects.requireNonNull(AudioHelper.getContext().getApplicationContext()
+                .getSystemService(Context.WIFI_SERVICE)))
+                .createWifiLock(WifiManager.WIFI_MODE_FULL, TAG);
 
+        mAudioFocusManager = new AudioFocusManager(AudioHelper.getContext().getApplicationContext(), this);
     }
 
     @Override
