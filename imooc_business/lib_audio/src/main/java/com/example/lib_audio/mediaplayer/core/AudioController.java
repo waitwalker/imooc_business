@@ -105,6 +105,16 @@ public class AudioController {
         return CustomMediaPlayer.Status.STARTED == getStatus();
     }
 
+    ///
+    /// @name isPauseState
+    /// @description 是否暂停状态
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public boolean isPauseState() {
+        return CustomMediaPlayer.Status.PAUSED == getStatus();
+    }
+
     private CustomMediaPlayer.Status getStatus() {
         return mAudioPlayer.getStatus();
     }
@@ -187,8 +197,18 @@ public class AudioController {
         return null;
     }
 
+    ///
+    /// @name playOrPause
+    /// @description 自动切换播放暂停
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     public void playOrPause() {
-
+        if (isStartState()) {
+            pause();
+        } else if (isPauseState()) {
+            resume();
+        }
     }
 
 }
