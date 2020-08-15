@@ -13,6 +13,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.lib_audio.app.AudioHelper;
+import com.example.lib_audio.mediaplayer.events.AudioCompleteEvent;
 import com.example.lib_audio.mediaplayer.events.AudioErrorEvent;
 import com.example.lib_audio.mediaplayer.events.AudioLoadEvent;
 import com.example.lib_audio.mediaplayer.events.AudioPauseEvent;
@@ -210,16 +211,34 @@ public class AudioPlayer implements
         return CustomMediaPlayer.Status.STOPPED;
     }
 
+    ///
+    /// @name onBufferingUpdate
+    /// @description 缓存进度的回调
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public void onBufferingUpdate(MediaPlayer mp, int percent) {
 
     }
 
+    ///
+    /// @name onCompletion
+    /// @description 播放完毕回调
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public void onCompletion(MediaPlayer mp) {
-
+        EventBus.getDefault().post(new AudioCompleteEvent());
     }
 
+    ///
+    /// @name onError
+    /// @description 播放遇到错误回调
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
         return false;
