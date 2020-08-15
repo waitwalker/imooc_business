@@ -1,7 +1,14 @@
 package com.example.lib_audio.mediaplayer.core;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.wifi.WifiManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.os.PowerManager;
+
+import androidx.annotation.NonNull;
 
 ///
 /// @name AudioPlayer
@@ -26,8 +33,36 @@ public class AudioPlayer implements
     // 用于后台保活
     private WifiManager.WifiLock mWifiLock;
 
-
+    // 音频焦点监听
     private AudioFocusManager mAudioFocusManager;
+
+    private Handler mHandler = new Handler(Looper.getMainLooper()){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            switch (msg.what) {
+                case TIME_MSG:
+                    break;
+            }
+        }
+    };
+
+    public AudioPlayer() {
+
+    }
+
+    private void init() {
+        mMediaPlayer = new CustomMediaPlayer();
+        // 设置电量低的时候也播放
+        mMediaPlayer.setWakeMode(null, PowerManager.PARTIAL_WAKE_LOCK);
+        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        // 设置监听器
+        mMediaPlayer.setOnCompletionListener(this);
+        mMediaPlayer.setOnPreparedListener(this);
+        mMediaPlayer.setOnBufferingUpdateListener(this);
+        mMediaPlayer.setOnErrorListener(this);
+
+
+    }
 
     @Override
     public void onBufferingUpdate(MediaPlayer mp, int percent) {
