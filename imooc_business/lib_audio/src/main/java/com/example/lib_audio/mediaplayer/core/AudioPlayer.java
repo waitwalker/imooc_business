@@ -13,6 +13,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.lib_audio.app.AudioHelper;
+import com.example.lib_audio.mediaplayer.events.AudioErrorEvent;
 import com.example.lib_audio.mediaplayer.events.AudioLoadEvent;
 import com.example.lib_audio.mediaplayer.model.AudioBean;
 
@@ -111,6 +112,7 @@ public class AudioPlayer implements
             EventBus.getDefault().post(new AudioLoadEvent(audioBean));
         } catch (Exception e) {
             // 对外发送error事件
+            EventBus.getDefault().post(new AudioErrorEvent());
         }
     }
 
