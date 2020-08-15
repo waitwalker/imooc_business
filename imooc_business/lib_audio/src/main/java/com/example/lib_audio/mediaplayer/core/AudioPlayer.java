@@ -225,7 +225,7 @@ public class AudioPlayer implements
 
     }
 
-    private boolean isPauseByFocusLossTransient;
+    private boolean isPauseByFocusLossTransient = false;
 
     ///
     /// @name audioFocusGrant
@@ -242,9 +242,15 @@ public class AudioPlayer implements
         isPauseByFocusLossTransient = false;
     }
 
+    ///
+    /// @name audioFocusLoss
+    /// @description 永久失去音频焦点
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public void audioFocusLoss() {
-
+        pause();
     }
 
     @Override
