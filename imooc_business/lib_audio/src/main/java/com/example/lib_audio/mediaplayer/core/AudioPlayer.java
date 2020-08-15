@@ -134,6 +134,8 @@ public class AudioPlayer implements
             if (mAudioFocusManager != null) {
                 mAudioFocusManager.abandonAudioFocus();
             }
+
+            // 发送暂停事件
         }
     }
 
@@ -144,7 +146,10 @@ public class AudioPlayer implements
     /// @date 2020/8/15
     ///
     public void resume() {
-
+        if (getStatus() == CustomMediaPlayer.Status.PAUSED) {
+            // 执行播放方法
+            start();
+        }
     }
 
     ///
