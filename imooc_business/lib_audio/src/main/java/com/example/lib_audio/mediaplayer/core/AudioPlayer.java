@@ -254,7 +254,7 @@ public class AudioPlayer implements
     ///
     @Override
     public void onPrepared(MediaPlayer mp) {
-
+        start();
     }
 
     ///
