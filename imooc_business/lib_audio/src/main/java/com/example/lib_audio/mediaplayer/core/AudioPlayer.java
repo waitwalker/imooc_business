@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -81,8 +82,38 @@ public class AudioPlayer implements
         mAudioFocusManager = new AudioFocusManager(AudioHelper.getContext().getApplicationContext(), this);
     }
 
+    ///
+    /// @name load
+    /// @description 对外提供的加载
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     public void load(AudioBean audioBean) {
+        try {
+            // 正常加载逻辑
+            // 清空
+            mMediaPlayer.reset();
+            mMediaPlayer.setDataSource(audioBean.mUrl);
+            mMediaPlayer.prepareAsync();
+            // 对外发送load事件
+        } catch (Exception e) {
+            // 对外发送error事件
+        }
+    }
 
+    ///
+    /// @name start
+    /// @description 内部开始播放
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    private void start(){
+        if (!mAudioFocusManager.requestAudioFocus()) {
+            Log.d(TAG,"获取音频焦点失败,其他音频播放器占用了");
+        }
+        mMediaPlayer.start();
+        mWifiLock.acquire();
+        // 对外发送start事件
     }
 
     @Override
