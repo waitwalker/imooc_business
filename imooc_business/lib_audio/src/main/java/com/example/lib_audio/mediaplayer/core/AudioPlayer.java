@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import com.example.lib_audio.app.AudioHelper;
 import com.example.lib_audio.mediaplayer.events.AudioErrorEvent;
 import com.example.lib_audio.mediaplayer.events.AudioLoadEvent;
+import com.example.lib_audio.mediaplayer.events.AudioStartEvent;
 import com.example.lib_audio.mediaplayer.model.AudioBean;
 
 import org.greenrobot.eventbus.EventBus;
@@ -129,6 +130,7 @@ public class AudioPlayer implements
         mMediaPlayer.start();
         mWifiLock.acquire();
         // 对外发送start事件
+        EventBus.getDefault().post(new AudioStartEvent());
     }
 
     ///
