@@ -153,6 +153,28 @@ public class AudioPlayer implements
     }
 
     ///
+    /// @name release
+    /// @description 释放资源
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public void release() {
+        if (mMediaPlayer == null) return;
+        mMediaPlayer.release();
+        mMediaPlayer = null;
+
+        if (mAudioFocusManager != null) {
+            mAudioFocusManager.abandonAudioFocus();
+        }
+
+        if (mWifiLock.isHeld()) {
+            mWifiLock.release();
+        }
+        mWifiLock = null;
+        mAudioFocusManager = null;
+    }
+
+    ///
     /// @name getStatus
     /// @description 获取播放状态
     /// @author liuca
