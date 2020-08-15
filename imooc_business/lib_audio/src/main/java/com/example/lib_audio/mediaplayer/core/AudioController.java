@@ -127,15 +127,68 @@ public class AudioController {
         mAudioPlayer.load(bean);
     }
 
+    ///
+    /// @name pause
+    /// @description 暂停播放
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     public void pause() {
         mAudioPlayer.pause();
     }
 
+    ///
+    /// @name resume
+    /// @description 重新播放
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     public void resume() {
         mAudioPlayer.resume();
     }
 
+    ///
+    /// @name release
+    /// @description 释放资源
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     public void release() {
         mAudioPlayer.release();
     }
+
+    ///
+    /// @name next
+    /// @description 播放下一曲
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public void next() {
+        AudioBean audioBean = getNextPlaying();
+        mAudioPlayer.load(audioBean);
+    }
+
+    private AudioBean getNextPlaying() {
+        return null;
+    }
+
+    ///
+    /// @name previous
+    /// @description 播放上一首歌曲
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public void previous() {
+        AudioBean audioBean = getPreviousPlaying();
+        mAudioPlayer.load(audioBean);
+    }
+
+    private AudioBean getPreviousPlaying() {
+        return null;
+    }
+
+    public void playOrPause() {
+
+    }
+
 }
