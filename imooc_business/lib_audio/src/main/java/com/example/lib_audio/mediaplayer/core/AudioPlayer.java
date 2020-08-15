@@ -241,7 +241,9 @@ public class AudioPlayer implements
     ///
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
-        return false;
+        EventBus.getDefault().post(new AudioErrorEvent());
+        // return true是为了防止在调用onCompletion
+        return true;
     }
 
     @Override
