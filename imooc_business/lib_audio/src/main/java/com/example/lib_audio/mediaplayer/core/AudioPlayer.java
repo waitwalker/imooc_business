@@ -116,7 +116,7 @@ public class AudioPlayer implements
             EventBus.getDefault().post(new AudioLoadEvent(audioBean));
         } catch (Exception e) {
             // 对外发送error事件
-            EventBus.getDefault().post(new AudioErrorEvent());
+            EventBus.getDefault().post(new AudioErrorEvent(AudioErrorEvent.ErrorCode.PlayError));
         }
     }
 
@@ -241,11 +241,17 @@ public class AudioPlayer implements
     ///
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
-        EventBus.getDefault().post(new AudioErrorEvent());
+        EventBus.getDefault().post(new AudioErrorEvent(AudioErrorEvent.ErrorCode.PlayError));
         // return true是为了防止在调用onCompletion
         return true;
     }
 
+    ///
+    /// @name onPrepared
+    /// @description 准备完毕
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public void onPrepared(MediaPlayer mp) {
 
