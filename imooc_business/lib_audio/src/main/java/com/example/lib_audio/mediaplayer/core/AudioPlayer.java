@@ -63,6 +63,12 @@ public class AudioPlayer implements
         init();
     }
 
+    ///
+    /// @name init
+    /// @description 初始化成员变量
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     private void init() {
         mMediaPlayer = new CustomMediaPlayer();
         // 设置电量低的时候也播放
@@ -172,6 +178,8 @@ public class AudioPlayer implements
         }
         mWifiLock = null;
         mAudioFocusManager = null;
+
+        //发送release销毁事件
     }
 
     ///
@@ -207,9 +215,31 @@ public class AudioPlayer implements
 
     }
 
+    ///
+    /// @name setVolume
+    /// @description 设置音频
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    private void setVolume(float leftVol, float rightVol) {
+
+    }
+
+    private boolean isPauseByFocusLossTransient;
+
+    ///
+    /// @name audioFocusGrant
+    /// @description 再次获取音频焦点
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public void audioFocusGrant() {
-
+        setVolume(1.0f, 1.0f);
+        if (isPauseByFocusLossTransient) {
+            resume();
+        }
+        isPauseByFocusLossTransient = false;
     }
 
     @Override
