@@ -265,8 +265,14 @@ public class AudioPlayer implements
         isPauseByFocusLossTransient = true;
     }
 
+    ///
+    /// @name audioFocusLossDuck
+    /// @description 瞬间失去焦点,比如来了一个通知,短信等
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public void audioFocusLossDuck() {
-
+        setVolume(0.5f,0.5f);
     }
 }
