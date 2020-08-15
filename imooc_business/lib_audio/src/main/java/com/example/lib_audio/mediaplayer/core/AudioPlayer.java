@@ -12,6 +12,7 @@ import android.os.PowerManager;
 import androidx.annotation.NonNull;
 
 import com.example.lib_audio.app.AudioHelper;
+import com.example.lib_audio.mediaplayer.model.AudioBean;
 
 import java.util.Objects;
 
@@ -78,6 +79,10 @@ public class AudioPlayer implements
                 .createWifiLock(WifiManager.WIFI_MODE_FULL, TAG);
 
         mAudioFocusManager = new AudioFocusManager(AudioHelper.getContext().getApplicationContext(), this);
+    }
+
+    public void load(AudioBean audioBean) {
+
     }
 
     @Override
