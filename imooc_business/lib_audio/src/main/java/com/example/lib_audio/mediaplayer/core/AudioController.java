@@ -210,7 +210,17 @@ public class AudioController {
     }
 
     private AudioBean getPreviousPlaying() {
-        return null;
+        switch (mPlayMode) {
+            case LOOP:
+                mQueueIndex = (mQueueIndex - 1) % mQueue.size();
+                break;
+            case RANDOM:
+                mQueueIndex = new Random().nextInt(mQueue.size()) % mQueue.size();
+                break;
+            case REPEAT:
+                break;
+        }
+        return getNowPlaying();
     }
 
     ///
