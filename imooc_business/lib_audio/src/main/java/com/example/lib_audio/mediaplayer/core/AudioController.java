@@ -73,6 +73,48 @@ public class AudioController {
         mQueueIndex = queueIndex;
     }
 
+    public void addAudio(AudioBean audioBean) {
+        this.addAudio(0, audioBean);
+    }
+
+    private int queryAudio(AudioBean audioBean) {
+        return 0;
+    }
+
+    private void addCustomAudio(int index, AudioBean audioBean) {
+        if (mQueue == null) {
+            throw new AudioQueueEmptyException("当前播放队列为空");
+        }
+        mQueue.add(index, audioBean);
+    }
+
+    ///
+    /// @name addAudio
+    /// @description 添加单一歌曲
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public void addAudio(int index, AudioBean audioBean) {
+        if (mQueue == null) {
+            throw new AudioQueueEmptyException("播放队列为空");
+        }
+
+        int query = queryAudio(audioBean);
+        // 如果没有添加过
+        if (query <= -1) {
+            // 先添加
+            addCustomAudio(index, audioBean);
+            setPlayIndex(index);
+        } else {
+            // 如果已经添加过,并且没有正在播放
+            AudioBean bean = getNextPlaying();
+            if (!bean.id.equals(audioBean.id)) {
+                // 已经添加过&&不是正在播放
+                setPlayIndex(query);
+            }
+        }
+    }
+
     ///
     /// @name queueIndex
     /// @description 获取&设置播放模式
