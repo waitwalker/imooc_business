@@ -68,4 +68,18 @@ public class AudioController {
         mQueueIndex = queueIndex;
     }
 
+    ///
+    /// @name queueIndex
+    /// @description 获取&设置播放模式
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public PlayMode queueIndex() {
+        return mPlayMode;
+    }
+
+    public void setPlayMode(PlayMode playMode) {
+        mPlayMode = playMode;
+    }
+
 }
