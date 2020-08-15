@@ -1,5 +1,6 @@
 package com.example.lib_audio.mediaplayer.core;
 
+import com.example.lib_audio.mediaplayer.exception.AudioQueueEmptyException;
 import com.example.lib_audio.mediaplayer.model.AudioBean;
 
 import java.util.ArrayList;
@@ -82,4 +83,28 @@ public class AudioController {
         mPlayMode = playMode;
     }
 
+    public void setPlayIndex(int index) {
+        if (mQueue == null) {
+            throw new AudioQueueEmptyException("当前播放队列为空,请先设置播放队列");
+        }
+        mQueueIndex = index;
+    }
+
+    public int getPlayIndex() {
+        return mQueueIndex;
+    }
+
+    ///
+    /// @name isStartState
+    /// @description 是否播放中
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public boolean isStartState() {
+        return CustomMediaPlayer.Status.STARTED == getStatus();
+    }
+
+    private CustomMediaPlayer.Status getStatus() {
+        return mAudioPlayer.getStatus();
+    }
 }
