@@ -116,6 +116,50 @@ public class AudioPlayer implements
         // 对外发送start事件
     }
 
+    ///
+    /// @name pause
+    /// @description 对外提供暂停播放
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public void pause() {
+        if (getStatus() == CustomMediaPlayer.Status.STARTED) {
+            mMediaPlayer.pause();
+            // 如果占用
+            if (mWifiLock.isHeld()) {
+                mWifiLock.release();
+            }
+
+            // 释放音频焦点
+            if (mAudioFocusManager != null) {
+                mAudioFocusManager.abandonAudioFocus();
+            }
+        }
+    }
+
+    ///
+    /// @name resume
+    /// @description 对外提供恢复播放
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public void resume() {
+
+    }
+
+    ///
+    /// @name getStatus
+    /// @description 获取播放状态
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public CustomMediaPlayer.Status getStatus() {
+        if (mMediaPlayer != null) {
+            return mMediaPlayer.getStatus();
+        }
+        return CustomMediaPlayer.Status.STOPPED;
+    }
+
     @Override
     public void onBufferingUpdate(MediaPlayer mp, int percent) {
 
