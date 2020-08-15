@@ -128,14 +128,14 @@ public class AudioController {
     }
 
     public void pause() {
-
+        mAudioPlayer.pause();
     }
 
     public void resume() {
-
+        mAudioPlayer.resume();
     }
 
     public void release() {
-
+        mAudioPlayer.release();
     }
 }
