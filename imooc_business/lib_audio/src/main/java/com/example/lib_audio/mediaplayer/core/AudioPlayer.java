@@ -253,9 +253,16 @@ public class AudioPlayer implements
         pause();
     }
 
+    ///
+    /// @name audioFocusLossTransient
+    /// @description 短暂性失去焦点,比如来电话了
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
     @Override
     public void audioFocusLossTransient() {
-
+        pause();
+        isPauseByFocusLossTransient = true;
     }
 
     @Override
