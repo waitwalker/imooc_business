@@ -43,6 +43,9 @@ public class AudioPlayer implements
     // 音频焦点监听
     private AudioFocusManager mAudioFocusManager;
 
+    // 是否瞬间失去焦点
+    private boolean isPauseByFocusLossTransient = false;
+
     private Handler mHandler = new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -222,10 +225,10 @@ public class AudioPlayer implements
     /// @date 2020/8/15
     ///
     private void setVolume(float leftVol, float rightVol) {
-
+        if (mMediaPlayer != null) {
+            mMediaPlayer.setVolume(leftVol, rightVol);
+        }
     }
-
-    private boolean isPauseByFocusLossTransient = false;
 
     ///
     /// @name audioFocusGrant
