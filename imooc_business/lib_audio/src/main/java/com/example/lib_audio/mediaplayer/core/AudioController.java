@@ -49,4 +49,23 @@ public class AudioController {
         mPlayMode = PlayMode.LOOP;
     }
 
+    ///
+    /// @name 设置播放队列
+    /// @description
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public ArrayList<AudioBean> getQueue() {
+        return mQueue == null ? new ArrayList<AudioBean>() : mQueue;
+    }
+
+    public void setQueue(ArrayList<AudioBean> queue) {
+        this.setQueue(queue,0);
+    }
+
+    public void setQueue(ArrayList<AudioBean> queue, int queueIndex) {
+        mQueue.addAll(queue);
+        mQueueIndex = queueIndex;
+    }
+
 }
