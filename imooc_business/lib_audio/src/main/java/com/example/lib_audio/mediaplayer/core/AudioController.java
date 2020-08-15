@@ -88,6 +88,7 @@ public class AudioController {
             throw new AudioQueueEmptyException("当前播放队列为空,请先设置播放队列");
         }
         mQueueIndex = index;
+        play();
     }
 
     public int getPlayIndex() {
@@ -106,5 +107,35 @@ public class AudioController {
 
     private CustomMediaPlayer.Status getStatus() {
         return mAudioPlayer.getStatus();
+    }
+
+    private AudioBean getNowPlaying() {
+        if (mQueue != null && mQueue.size() > 0) {
+            return mQueue.get(mQueueIndex);
+        }
+        return null;
+    }
+
+    ///
+    /// @name play
+    /// @description 播放,player调用完load方法,内部会自动调用start方法
+    /// @author liuca
+    /// @date 2020/8/15
+    ///
+    public void play() {
+        AudioBean bean = getNowPlaying();
+        mAudioPlayer.load(bean);
+    }
+
+    public void pause() {
+
+    }
+
+    public void resume() {
+
+    }
+
+    public void release() {
+
     }
 }
