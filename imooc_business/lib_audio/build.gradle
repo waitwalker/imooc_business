@@ -45,10 +45,10 @@ dependencies {
     //占位主工程的rxjava库
     compileOnly rootProject.depsLibs.rxjava
     //占位主工程arouter库
-    compileOnly(rootProject.depsLibs.arouterapi) {
-        exclude group: 'com.android.support'
-    }
-    annotationProcessor rootProject.depsLibs.aroutercompiler
+//    compileOnly(rootProject.depsLibs.arouterapi) {
+//        exclude group: 'com.android.support'
+//    }
+//    annotationProcessor rootProject.depsLibs.aroutercompiler
 
     //占位主工程自己源码库
     compileOnly project(':lib_image_loader')

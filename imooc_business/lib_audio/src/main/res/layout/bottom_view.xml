@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+
+    <View
+        android:id="@+id/divider"
+        android:background="#dddddd"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    <RelativeLayout
+        android:paddingStart="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/divider"
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:id="@+id/album_view"
+            android:layout_width="45dp"
+            android:layout_height="45dp"/>
+
+        <LinearLayout
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/album_view"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/audio_name_view"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:text="冬天的秘密"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textSize="12sp"
+                android:text="东风破专辑"
+                android:textColor="#999999"
+                android:id="@+id/audio_album_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/play_view"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/note_btn_play_white"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+            <ImageView
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+                android:src="@mipmap/audio_black_cat"
+                android:id="@+id/show_list_view"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

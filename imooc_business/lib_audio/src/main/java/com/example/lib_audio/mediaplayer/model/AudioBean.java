@@ -3,6 +3,7 @@ package com.example.lib_audio.mediaplayer.model;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Unique;
 
@@ -106,7 +107,7 @@ import java.io.Serializable;
         this.totalTime = totalTime;
     }
 
-    @Generated(hash = 1701787808)
+    @Keep
     public AudioBean(String id, String mUrl, String name, String author, String album, String albumInfo, String albumPic, String totalTime) {
         this.id = id;
         this.mUrl = mUrl;
@@ -118,7 +119,7 @@ import java.io.Serializable;
         this.totalTime = totalTime;
     }
 
-    @Generated(hash = 1628963493) public AudioBean() {
+    @Keep public AudioBean() {
     }
 
     ///
@@ -131,5 +132,13 @@ import java.io.Serializable;
         if (other == null) return false;
         if (!(other instanceof AudioBean)) return false;
         return ((AudioBean) other).id.equals(this.id);
+    }
+
+    public String getMUrl() {
+        return this.mUrl;
+    }
+
+    public void setMUrl(String mUrl) {
+        this.mUrl = mUrl;
     }
 }
