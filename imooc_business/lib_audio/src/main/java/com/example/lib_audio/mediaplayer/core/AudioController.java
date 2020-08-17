@@ -169,11 +169,15 @@ public class AudioController {
         return mAudioPlayer.getStatus();
     }
 
-    private AudioBean getNowPlaying() {
-        if (mQueue != null && !mQueue.isEmpty() && mQueue.size() > 0) {
-            return mQueue.get(mQueueIndex);
+    public AudioBean getNowPlaying() {
+        return getPlaying(mQueueIndex);
+    }
+
+    private AudioBean getPlaying(int index) {
+        if (mQueue != null && !mQueue.isEmpty() && index >= 0 && index < mQueue.size()) {
+            return mQueue.get(index);
         } else {
-            throw new AudioQueueEmptyException("当前播放队列为空,请先设置播放队列");
+            throw new AudioQueueEmptyException("当前播放队列为空,请先设置播放队列.");
         }
     }
 
