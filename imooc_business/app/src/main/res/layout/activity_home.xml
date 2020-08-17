@@ -57,7 +57,16 @@
             android:layout_below="@id/title_layout"
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
+            android:layout_marginBottom="50dp"
             android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/holo_purple"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
