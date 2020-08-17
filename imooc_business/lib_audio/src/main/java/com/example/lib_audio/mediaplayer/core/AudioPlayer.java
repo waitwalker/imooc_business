@@ -83,7 +83,7 @@ public class AudioPlayer implements
     private void init() {
         mMediaPlayer = new CustomMediaPlayer();
         // 设置电量低的时候也播放
-        mMediaPlayer.setWakeMode(null, PowerManager.PARTIAL_WAKE_LOCK);
+        mMediaPlayer.setWakeMode(AudioHelper.getContext(), PowerManager.PARTIAL_WAKE_LOCK);
         mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         // 设置监听器
         mMediaPlayer.setOnCompletionListener(this);

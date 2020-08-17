@@ -1,9 +1,13 @@
 package com.example.lib_audio.mediaplayer.core;
 
+import com.example.lib_audio.mediaplayer.events.AudioCompleteEvent;
+import com.example.lib_audio.mediaplayer.events.AudioErrorEvent;
 import com.example.lib_audio.mediaplayer.exception.AudioQueueEmptyException;
 import com.example.lib_audio.mediaplayer.model.AudioBean;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -278,5 +282,16 @@ public class AudioController {
             resume();
         }
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onAudioCompleteEvent(AudioCompleteEvent event) {
+        next();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onAudioErrorEvent(AudioErrorEvent event) {
+        next();
+    }
+
 
 }
