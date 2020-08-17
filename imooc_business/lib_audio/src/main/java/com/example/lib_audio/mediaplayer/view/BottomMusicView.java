@@ -11,11 +11,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.lib_audio.R;
+import com.example.lib_audio.mediaplayer.core.AudioController;
 import com.example.lib_audio.mediaplayer.events.AudioLoadEvent;
 import com.example.lib_audio.mediaplayer.events.AudioPauseEvent;
 import com.example.lib_audio.mediaplayer.events.AudioProgressEvent;
 import com.example.lib_audio.mediaplayer.events.AudioStartEvent;
 import com.example.lib_audio.mediaplayer.model.AudioBean;
+import com.example.lib_image_loader.app.ImageLoaderManager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -75,6 +77,7 @@ public class BottomMusicView extends RelativeLayout {
             @Override
             public void onClick(View v) {
                 //播放暂停按钮事件
+                AudioController.getInstance().playOrPause();
             }
         });
 
@@ -94,24 +97,49 @@ public class BottomMusicView extends RelativeLayout {
         EventBus.getDefault().unregister(this);
     }
 
+    // 监听load事件
     @Subscribe(threadMode = ThreadMode.MAIN) public void onAudioLoadEvent(AudioLoadEvent event) {
         //更新当前view为load状态
-        //mAudioBean = event.mAudioBean;
-        //showLoadView();
+        mAudioBean = event.audioBean;
+        showLoadView();
     }
 
+    // 监听暂停事件
     @Subscribe(threadMode = ThreadMode.MAIN) public void onAudioPauseEvent(AudioPauseEvent event) {
         //更新当前view为暂停状态
-        //showPauseView();
+        showPauseView();
     }
 
+    // 监听播放事件
     @Subscribe(threadMode = ThreadMode.MAIN) public void onAudioStartEvent(AudioStartEvent event) {
         //更新当前view为播放状态
-        //showPlayView();
+        showPlayView();
     }
 
+    // 监听进度事件
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onAudioProgrssEvent(AudioProgressEvent event) {
         //更新当前view的播放进度
+    }
+
+    private void showLoadView() {
+        if (mAudioBean != null) {
+            ImageLoaderManager.getInstance().displayImageForCircle(mLeftView, mAudioBean.albumPic);
+            mTitleView.setText(mAudioBean.name);
+            mAlbumView.setText(mAudioBean.album);
+            mPlayView.setImageResource(R.mipmap.note_btn_pause_white);
+        }
+    }
+
+    private void showPauseView() {
+        if (mAudioBean != null) {
+            mPlayView.setImageResource(R.mipmap.note_btn_play_white);
+        }
+    }
+
+    private void showPlayView() {
+        if (mAudioBean != null) {
+            mPlayView.setImageResource(R.mipmap.note_btn_pause_white);
+        }
     }
 }
